@@ -457,7 +457,7 @@ function buildFormation() {
 }
 function drawFinale(t) {
   if (t < T.gather) return;
-  const m = Math.min(W * .9, H * .46) / 2.5, ccx = W / 2, ccy = H * .42;
+  const m = Math.min(W * .9, H * .46) / 2.5, ccx = W / 2, ccy = H * (H / W < 1.95 ? .39 : .42);
   const glow = sm(prog(T.glow, T.glow + 1.4, t)), pulse = 1 + .022 * Math.sin((t - T.glow) * 2.4) * glow;
   // dim the desk, then warm glow
   cx.save(); cx.scale(PR, PR);
@@ -494,7 +494,8 @@ function drawFinale(t) {
   if (wk > 0) {
     cx.save(); cx.scale(PR, PR);
     const fs = Math.min(W * .19, H * .085); cx.font = `700 ${fs}px Caveat, cursive`; cx.textAlign = 'center'; cx.textBaseline = 'middle';
-    const y = ccy + m * 1.6, tw = cx.measureText(FINAL).width;
+    let tw = cx.measureText(FINAL).width; if (tw > W * .9) { const f2 = fs * W * .9 / tw; cx.font = `700 ${f2}px Caveat, cursive`; tw = cx.measureText(FINAL).width; }
+    const y = ccy + m * (H / W < 1.95 ? 1.55 : 1.6);
     cx.beginPath(); cx.rect(W / 2 - tw / 2 - 10, y - fs, (tw + 20) * sm(wk), fs * 2); cx.clip();
     cx.shadowColor = 'rgba(255,90,110,.95)'; cx.shadowBlur = 26; cx.fillStyle = '#fff4ec'; cx.fillText(FINAL, W / 2, y);
     cx.shadowBlur = 0; cx.fillText(FINAL, W / 2, y); cx.restore();
