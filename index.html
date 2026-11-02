@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>Origami Love 📄❤️ | paper that folds itself into love</title>
+<meta name="description" content="One sheet of paper folds itself into a crane, then a heart that opens with a love note inside. Made by @hack.n.code">
+<meta property="og:title" content="Origami Love 📄❤️">
+<meta property="og:description" content="Someone folded you a paper heart. Tap to open it.">
+<meta name="theme-color" content="#1c100b">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<canvas id="c"></canvas>
+<div id="cap"></div>
+<button id="snd" aria-label="sound">🔊</button>
+
+<section id="start">
+  <div class="st-inner">
+    <div class="st-emoji">📄</div>
+    <h1>Origami<br>Love</h1>
+    <p class="st-sub">one sheet of paper, folded with love</p>
+    <button id="begin">Tap to fold ❤️</button>
+    <p class="st-hint">turn your sound on 🔊</p>
+  </div>
+</section>
+
+<section id="end">
+  <div class="end-btns">
+    <button id="replay" class="btn ghost">↺ Replay</button>
+    <button id="share" class="btn main">Send it 💌</button>
+  </div>
+  <button id="mk" class="mk">✏️ Make one for your person</button>
+  <div class="credit">Made by <b>@hack.n.code</b></div>
+</section>
+
+<div id="make" class="modal"><div class="card">
+  <h2>Make it yours 💌</h2>
+  <p>Add a name and it gets written inside the paper heart.</p>
+  <input id="petname" maxlength="16" placeholder="their name (optional)" autocomplete="off">
+  <button id="mkcopy" class="btn main">Copy link 🔗</button>
+  <div id="mklink"></div>
+  <button id="mkclose" class="btn ghost">Close</button>
+</div></div>
+<div id="toast"></div>
+<script src="app.js"></script>
+</body></html>
